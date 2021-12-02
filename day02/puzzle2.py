@@ -4,20 +4,20 @@ from queue import Queue
 FILE_NAME = os.path.join(os.path.dirname(__file__), "data.txt")
 
 
-def read_file() -> list[tuple[str, int]]:
-    directions: list[tuple[str, int]] = []
+def process_data_file() -> list[tuple[str, int]]:
+    data: list[tuple[str, int]] = []
     with open(FILE_NAME, "r") as f:
         for line in f.read().splitlines():
             tmp = line.split()
-            directions.append((tmp[0], int(tmp[1])))
-    return directions
+            data.append((tmp[0], int(tmp[1])))
+    return data
 
 
 def main() -> int:
     x, y, aim = (0, 0, 0)
-    directions = read_file()
-    for direc, unit in directions:
-        match direc:
+    data = process_data_file()
+    for direction, unit in data:
+        match direction:
             case 'forward':
                 x += unit
                 y += aim * unit
@@ -28,7 +28,9 @@ def main() -> int:
             case _:
                 pass
 
-    print(f"your coordinates are: {(x, y)} your answer is: {x * y}")
+    final = x * y
+    print(f"your coordinates are: {(x, y)}")
+    print(f"your answer is: {final}")
     return 0
 
 
