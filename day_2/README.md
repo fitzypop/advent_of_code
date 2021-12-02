@@ -1,4 +1,7 @@
---- Day 2: Dive! ---
+# Day 2: Dive
+
+## Part 1
+
 Now, you need to figure out how to pilot this thing.
 
 It seems like the submarine can take a series of commands like forward 1, down 2, or up 3:
@@ -28,11 +31,12 @@ After following these instructions, you would have a horizontal position of 15 a
 
 Calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?
 
-Your puzzle answer was 1507611.
+**Your puzzle answer was 1507611.**
 
 The first half of this puzzle is complete! It provides one gold star: *
 
---- Part Two ---
+## Part Two
+
 Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.
 
 In addition to horizontal position and depth, you'll also need to track a third value, aim, which also starts at 0. The commands also mean something entirely different than you first thought:
@@ -56,4 +60,4 @@ After following these new instructions, you would have a horizontal position of 
 
 Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?
 
-Your puzzle answer is 1880593125.
+**Your puzzle answer is 1880593125.**
