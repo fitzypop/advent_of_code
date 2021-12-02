@@ -1,7 +1,7 @@
 import os.path
 from queue import Queue
 
-FILE_NAME = os.path.join(os.path.dirname(__file__), "data.txt")
+FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 
 
 def process_data_file() -> list[tuple[str, int]]:

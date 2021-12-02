@@ -1,6 +1,6 @@
 import os.path
 
-DEFAULT_FILE_NAME = os.path.join(os.path.dirname(__file__), "depths.txt")
+DEFAULT_FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 
 
 def read_file(file_name: str = None) -> list[int]:
