@@ -38,7 +38,6 @@ Calculate the horizontal position and depth you would have after following the p
 
 **Your puzzle answer was 1507611.**
 
-The first half of this puzzle is complete! It provides one gold star: *
 
 ## Part Two
 
