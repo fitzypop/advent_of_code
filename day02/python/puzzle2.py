@@ -7,7 +7,7 @@ FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 def process_data_file() -> list[tuple[str, int]]:
     data: list[tuple[str, int]] = []
     with open(FILE_NAME, "r") as f:
-        for line in f.read().splitlines():
+        for cmd, n_s in f.read().splitlines():
             tmp = line.split()
             data.append((tmp[0], int(tmp[1])))
     return data

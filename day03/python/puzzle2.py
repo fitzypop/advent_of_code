@@ -1,26 +1,12 @@
 import os
 from enum import Enum
 
-FILE_NAME = os.path.join(os.path.dirname(__file__), "data.txt")
-
-
-def read_file() -> list[str]:
-    with open(FILE_NAME, "r") as f:
-        return f.read().splitlines()
+FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 
 
 class Criteria(Enum):
     LEAST = 0
     MOST = 1
-
-
-def main() -> int:
-    data = read_file()
-
-    num1 = int(reduce(data, Criteria.MOST), 2)
-    num2 = int(reduce(data, Criteria.LEAST), 2)
-    print(f"Puzzle 2 answer is: {num1 * num2}")
-    return 0
 
 
 criteria = {
@@ -29,7 +15,12 @@ criteria = {
 }
 
 
-def reduce(data: list[str], m_criteria: Criteria, i_pos: int = 0):
+def read_file() -> list[str]:
+    with open(FILE_NAME, "r") as f:
+        return f.read().splitlines()
+
+
+def reduce(data: list[str], m_criteria: Criteria, i_pos: int = 0) -> str:
     if len(data) == 1:
         return data[0]
 
@@ -51,5 +42,14 @@ def reduce(data: list[str], m_criteria: Criteria, i_pos: int = 0):
     return reduce(next_data, m_criteria, i_pos + 1)
 
 
+def main() -> int:
+    data = read_file()
+
+    num1 = int(reduce(data, Criteria.MOST), 2)
+    num2 = int(reduce(data, Criteria.LEAST), 2)
+    print(f"Puzzle 2 answer is: {num1 * num2}")
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

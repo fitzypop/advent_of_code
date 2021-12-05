@@ -7,9 +7,9 @@ FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 def process_data_file() -> dict[str, int]:
     directions = {"up": 0, "down": 0, "forward": 0}
     with open(FILE_NAME, "r") as f:
-        for line in f.read().splitlines():
-            command, n_s = line.split()
-            directions[command] += int(n_s)
+        combos = [line.split() for line in f.read().splitlines()]
+        for command, num_str in combos:
+            directions[command] += int(num_str)
 
     return directions
 
