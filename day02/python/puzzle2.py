@@ -1,5 +1,4 @@
 import os.path
-from queue import Queue
 
 FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 
@@ -7,9 +6,8 @@ FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 def process_data_file() -> list[tuple[str, int]]:
     data: list[tuple[str, int]] = []
     with open(FILE_NAME, "r") as f:
-        for cmd, n_s in f.read().splitlines():
-            tmp = line.split()
-            data.append((tmp[0], int(tmp[1])))
+        for cmd, n_s in [line.split() for line in f.read().splitlines()]:
+            data.append((cmd, int(n_s)))
     return data
 
 

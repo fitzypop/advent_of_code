@@ -1,16 +1,11 @@
 import os.path
 
-DEFAULT_FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
+FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 
 
-def read_file(file_name: str = None) -> list[int]:
-    if not file_name:
-        file_name = DEFAULT_FILE_NAME
-
-    with open(file_name, "r") as f:
-        depths = [int(line) for line in f.read().splitlines()]
-
-    return depths
+def read_file() -> list[int]:
+    with open(FILE_NAME) as f:
+        return [int(line) for line in f.read().splitlines()]
 
 
 def calculate_depth_increases(depths: list[int] = None) -> int:
