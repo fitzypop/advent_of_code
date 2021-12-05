@@ -14,7 +14,7 @@ def process_data_file() -> list[tuple[str, int]]:
 
 
 def main() -> int:
-    x, y, aim = (0, 0, 0)
+    x = y = aim = 0
     data = process_data_file()
     for direction, unit in data:
         match direction:
