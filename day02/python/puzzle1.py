@@ -1,17 +1,47 @@
 import os.path
-from posixpath import commonpath
+
+import pytest
 
 FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 
 
 def process_data_file() -> dict[str, int]:
-    directions = {"up": 0, "down": 0, "forward": 0}
     with open(FILE_NAME, "r") as f:
-        combos = [line.split() for line in f.read().splitlines()]
-        for command, num_str in combos:
-            directions[command] += int(num_str)
+        lines = f.read().splitlines()
+        return parse(lines)
+
+
+def parse(lines: list[str]) -> dict[str, int]:
+    directions = {"up": 0, "down": 0, "forward": 0}
+    combos = [line.split() for line in lines]
+    for command, num_str in combos:
+        directions[command] += int(num_str)
 
     return directions
+
+
+TESTS = [
+    (
+        [
+            "forward 5",
+            "down 5",
+            "forward 8",
+            "up 3",
+            "down 8",
+            "forward 2",
+        ],
+        150,
+    )
+]
+
+
+@pytest.mark.parametrize(("input_data", "expected"), TESTS)
+def test(input_data, expected):
+    assert compute(parse(input_data)) == expected
+
+
+def compute(data: dict[str, int]) -> int:
+    return data["forward"] * (data["down"] - data["up"])
 
 
 def main() -> int:

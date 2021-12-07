@@ -6,6 +6,8 @@ import numpy as np
 from shared import read_file
 
 
+def compute(draws, bo)
+
 def main() -> int:
     draws, boards = read_file()
 

@@ -1,5 +1,7 @@
 import os.path
 
+import pytest
+
 FILE_NAME = os.path.join(os.path.dirname(__file__), "..", "data.txt")
 
 
@@ -8,10 +10,9 @@ def read_file() -> list[str]:
         return f.read().splitlines()
 
 
-def main() -> int:
+def compute(data: list[str]) -> int:
     gamma = ""
     epsilon = ""
-    data = read_file()
     for i in range(len(data[0])):
         zero_count = 0
         one_count = 0
@@ -30,7 +31,38 @@ def main() -> int:
 
     n_gamma = int(gamma, 2)
     n_epsilon = int(epsilon, 2)
-    print(f"{n_gamma*n_epsilon=}")
+    return n_gamma * n_epsilon
+
+
+TESTS = [
+    (
+        [
+            "00100",
+            "11110",
+            "10110",
+            "10111",
+            "10101",
+            "01111",
+            "00111",
+            "11100",
+            "10000",
+            "11001",
+            "00010",
+            "01010",
+        ],
+        198,
+    )
+]
+
+
+@pytest.mark.parametrize(("input_data", "expected"), TESTS)
+def test(input_data, expected):
+    assert compute(input_data) == expected
+
+
+def main() -> int:
+    data = read_file()
+    print(f"{compute(data)}")
     return 0
 
 
