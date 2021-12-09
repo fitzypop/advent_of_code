@@ -38,7 +38,6 @@ Calculate the horizontal position and depth you would have after following the p
 
 **Your puzzle answer was 1507611.**
 
-
 ## Part Two
 
 Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.

@@ -1,4 +1,5 @@
 import os.path
+from collections import defaultdict
 
 import pytest
 
@@ -12,7 +13,7 @@ def process_data_file() -> dict[str, int]:
 
 
 def parse(lines: list[str]) -> dict[str, int]:
-    directions = {"up": 0, "down": 0, "forward": 0}
+    directions = defaultdict(int)
     combos = [line.split() for line in lines]
     for command, num_str in combos:
         directions[command] += int(num_str)
